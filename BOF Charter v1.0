@@ -1,0 +1,12 @@
+The MSR6 WG focuses on source routing multicast based on native IPv6 (IPv6 and IPv6 extension headers), including Best Effort and Traffic Engineering solutions, which is able to decouple multicast forwarding with per flow status in intermediate nodes.
+ 
+MSR6 WG will manage its specific work items by milestones agreed with the responsible Area Director.
+The work-items of the MSR6 WG include functional specifications for:
+ 
+o  New types of MSR6 segments mapping to forwarding behavior and IPv6 Encapsulation for MSR6 Best Effort. 
+o  New types of MSR6 segments mapping to forwarding behavior and IPv6 Encapsulation for MSR6 Traffic Engineering.
+o  MSR6 associated steering and signaling mechanisms.
+o  MSR6 Management and Security.
+ 
+YANG Models and OAM could be covered in the work of next stage once the functional specifications have been completed.
+ 
