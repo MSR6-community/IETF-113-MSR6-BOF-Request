@@ -1,0 +1,10 @@
+Now that IPv6 deployment is at last growing rapidly, operators need to add IPv6 multicast support to the core unicast mechanisms. Existing approaches offer partial solutions, but there is an opportunity for a source routing based new multicast architecture can be developed that is designed to address the two most important potential multicast scenarios in IPv6 networks:
+•	For massive multicast streaming scenarios (e.g., OTT live streaming), the main requirement is to avoid per-multicast flow status maintenance in the intermediate network device, in order to increase scalability and transport as many services as possible; 
+•	For sparse multicast explicit path scenarios (e.g., Audio/Video Conferencing), the main requirement is to dynamically build the multicast tree and provide path optimization to satisfy the SLA.
+The existing technologies can’t satisfy the above requirements:
+1.	The BIER architecture which is defined in RFC8279 and the Layer 2.5 BIER encapsulation defined in RFC8296 (both worked on in the BIER WG) are not native to IPv6. 
+2.	Existing IP multicast protocols (PIM, IGMP, MLD) worked on in the PIM WG request per-tree status maintenance.
+3.	Point-to-multipoint Segment Routing (SR P2MP) defined in the PIM WG also requests per-tree status.
+MSR6 provides source routing multicast based on native IPv6 (IPv6 and IPv6 extension headers), including Best Effort and Traffic Engineering solutions, which could satisfy the requirements of scalability and deployment simplicity for different application scenarios.
+
+The BOF is to discuss the use case, requirements, and potential solutions for MSR6.
