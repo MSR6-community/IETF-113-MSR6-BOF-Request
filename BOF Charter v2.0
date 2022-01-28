@@ -24,6 +24,6 @@ Use cases and requirements are not included in the charter but WG will have docu
 Any modification of or extension to existing architectures, data planes, or control or management plane protocols must be carried out in the working groups responsible for the architecture, data plane, or control or management plane protocol being modified and in co-ordination with this working group, but may be done in this working group after agreement with all the relevant WG chairs and responsible Area Directors. 
 Here are potential interactions with other WG:
 o  6MAN:  IPv6 Extension Header
-o  LSR:     IGP Extensions 
-o  BESS:    MVPN
+o  LSR:   IGP Extensions 
+o  BESS:  MVPN
 
