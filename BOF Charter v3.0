@@ -1,0 +1,42 @@
+The MSR6 WG focuses on source routing multicast based on native IPv6 (IPv6 and IPv6 extension headers), including Best Effort and Traffic Engineering solutions, which is able to decouple multicast forwarding with per flow status in intermediate nodes, similar as SRv6 for unicast.
+
+Gap Analysis
+
+The existing multicast mechanism makes multicast and unicast independent with each other in data plane and control plane, which brings difficulty for multicast deployment.
+Traditional multicast protocols requires tight coupling of multicast groups with control plane information by maintaining per multicast group flow state in each router, which is fundamentally different from unicast forwarding which is flow irrelevant.  
+SRv6 defines unicast source routing based on IPv6, which enables packet programming by encoding a sequence of instructions with functions in the IPv6 header. Unicast path could be indicated by SRv6 segment list. SR P2MP provides mechanism for multicast which brings replication status for each replication nodes, with the following limitation: 1) lack of scalability when the number of multicast service increases; 2) unable to encode multicast tree in IPv6 header on ingress, as unicast does;
+BIER defines BIER forwarding in RFC8279 and BIER header in RFC8296, and it decouples multicast forwarding with flow status and extends the scalability of multicast. BIER introduces independent "BIER Layer" which is treated as a Layer 2.5 mechanism only for multicast, with the following limitation: 1) strictly depends on bitstring forwarding hardware; 2) has to recreate BIER extension header to support functions that have been supported for IPv6, e.g., IPsec, Network Slicing; 3) Difficulty for Inter-domain deployment;
+
+MSR6 Introduction
+
+MSR6(multicast source routing over IPv6) defines multicast source routing over IPv6, just as SRv6 for unicast. MSR6 encapsulation reuses IPv6 Header with unicast destination address and treats multicast replication as a function in Layer 3. It makes it easy to go through non-multicast IPv6 nodes and reuse other functions/capabilities that have been defined in IPv6. Source routing brings no flow status in intermediate nodes and efficient encapsulation expense, which guarantees scalability.
+IPv6 extension header can be used for indicating multicast replication information, e.g., Destination Options Header for indicating multicast egress nodes, Routing Header for indicating an explicit multicast tree.
+When a multicast data packet enters an MSR6 domain, the ingress node encapsulates the packet with an IPv6 header with MSR6 function. The destination address of the IPv6 header steers the packet to the next replication node and the replication node replicates the packet based on MSR6 function, updates the destination address and iterates this process. Similar as SRv6 process.
+There are multiple methods to indicate multicast replication function and some of the potential solutions have been defined in individual drafts, independent with using bitstring or not. The existing multicast forwarding methods have been defined in IETF could be reused , e.g., BIER, P2MP Tree SID.
+
+MSR6 WG will manage its specific work items by milestones agreed with the responsible Area Director.
+A proposed milestone:
+	Jun 2022   Initial Standards Track document for MSR6 Design Consideration
+	Jul 2022   Initial Standards Track document for MSR6 best effort and VPN 
+	Dec 2022   Initial Standards Track document for signaling of MSR6 best effort and VPN 
+	Jan 2023   Initial Standards Track document for MSR6 TE 
+	Jun 2023   Adopt Standards Track document for MSR6 Design Consideration        
+	Jul 2023   Adopt Standards Track document for MSR6 best effort and VPN
+	Dec 2023   Adopt Standards Track document for signaling of MSR6 best effort and VPN
+ 
+The work-items of the MSR6 WG include functional specifications for:
+	Design Consideration for MSR6
+	New types of MSR6 segments mapping to forwarding behavior and IPv6 Encapsulation for MSR6 Best Effort. 
+	New types of MSR6 segments mapping to forwarding behavior and IPv6 Encapsulation for MSR6 Traffic Engineering.
+	MSR6 signaling mechanisms to advertise BE/TE associated information
+	MSR6 steering mechanisms to steer the flow into MSR BE/TE path through BGP/PCE extensions
+	MSR6 YANG Model.
+	MSR6 OAM.
+	MSR6 Security.
+ 
+Use cases and requirements are not included in the charter but WG will have documents to give guidance about the target scenarios.
+Any modification of or extension to existing architectures, data planes, or control or management plane protocols must be carried out in the working groups responsible for the architecture, data plane, or control or management plane protocol being modified and in co-ordination with this working group, but may be done in this working group after agreement with all the relevant WG chairs and responsible Area Directors. 
+Here are potential interactions with other WG:
+	6MAN:  IPv6 Extension Header
+	LSR:   IGP Extensions 
+	BESS:  MVPN
