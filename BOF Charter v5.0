@@ -1,0 +1,48 @@
+*Note: This is an intermediate state version, the part labeled TBM(To Be Modified) may be modified 
+
+MSR6 (Multicast Source Routing over IPv6) defines multicast replication as a Layer 3 function.  It reuses existing IPv6 headers, functions, and capabilities to forward packets through non-multicast nodes, and adds no flow state at intermediate network nodes.
+
+The definition of new IPv6 Extension Headers may be required by the use cases.  The MSR6 WG can discuss their function and requirements.  The modification of existing IPv6 extension  headers or the definition of new ones will be carried in the 6man WG.
+
+The MSR6 WG will focus on use cases with the following set of characteristics:
+
+1)	Large network scale: in large data center deployments, for example, nodes in the order of 10k's and links in the order of 100k's that need to be individually addressed.
+2)	[TBM] Numerous multicast service; PIM and SR P2MP defined in PIM WG request maintaining per flow status in the intermediate nodes. When the multicast service is numerous, the number of replication status could overload the capability of the intermediate nodes.
+3)	[TBM] Small and flexible multicast tree; It is affordable for encapsulation expense to encode a multicast tree in the packet in the ingress node.
+
+[TBM] Source routing provides the capability to steer a packet though a list of network nodes without maintaining per flow status in intermediate nodes. MSR6 is suitable for these multicast scenarios which request scalability and flexibility
+
+[TBM] With the rapid deployment of IPv6, there are some other multicast scenarios carried in IPv6 network request functions provided by IPv6 extension header, including IPsec, network slicing. For example security is one of the fundamental requirements in SD-WAN network. Multicast services for SD-WAN also request encryption. Native IPv6 based multicast solution like MSR6 is suitable for these scenarios.
+
+[TBM] The MSR6 WG focuses on source routing multicast based on native IPv6 (IPv6 and
+IPv6 extension headers), including Best Effort and Traffic Engineering solutions, which is able to decouple multicast forwarding with per flow status in intermediate nodes, similar as SRv6 for unicast.
+
+The MSR6 WG is chartered for the following list of items:
+
+(1) Use Cases, and Requirements
+
+    This document should describe in detail the scenarios that meet the network characteristics listed above. This document may not necessarily be published as an IETF Stream RFC, but
+    may be maintained in draft form or on a collaborative Working Group space to support the efforts of the Working Group and help newcomers.
+
+(2) MSR6 Specifications
+
+   This document, or set of documents as defined by the WG, should specify the MSR6 system.  It should include, as needed, a description of any extensions needed to satisfy both Best Effort and Traffic Engineering use cases and requirements.
+
+(3) MSR6 YANG Model
+
+   Existing control and management plane protocols should be used to implement the MSR6 functionality.  Any modification of or extension to existing architectures or control or management plane protocols must be carried out
+   in the working groups responsible for them and in coordination with this working group.
+
+
+The MSR6 WG will coordinate and collaborate with other WGs as needed. Specific interactions may include (but are not limited to):
+        * 6man for IPv6 extension headers
+        * lsr for OSPFv2, OSPFv3 and IS-IS extensions
+        * idr for BGP extensions
+        * pce for PCEP extensions
+[TBM] PIM/BIER should also be considered as related WG
+
+   Milestones:
+   Nov 2022: Adopt the Use Cases, and Requirements document
+   Jul 2023: Adopt the MSR6 Specification(s)
+   Jul 2024: Submit the MSR6 Specification(s) to the IESG for Publication
+
