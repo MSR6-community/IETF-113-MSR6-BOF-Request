@@ -1,0 +1,35 @@
+(Mailing List Discussion Version from Aijun Wang)
+
+Multicast Source Routing (MSR) is one promising way to deliver the multicast traffic within the network, which can alleviate the pressures on the network by eliminating the per flow status in intermediate nodes, as that accomplished by the source routing for unicast. 
+
+With the rapid adoption and deployment of IPv6 technologies in network, it is desirable to deliver the multicast traffic on the IPv6 only network, which can utilize the existing and on-development emerging IPv6 technologies. However, current multicast source routing solution can’t incorporate various IPv6 extension headers seamlessly.
+
+The “Multicast Source Routing in IPv6 Network (MSR6)” working group will define the IPv6 based multicast source routing solution for abundant multicast services within large network scale. The extensibility of the solution and the integration with other IPv6 technologies are expected to improve upon the current solutions.
+
+The scope of MSR6 WG includes multicast source routing on native IPv6, solutions for best effort/traffic engineering requirements, the management and telemetry of MSR6 based multicast services etc.
+
+The MSR6 WG is chartered for the following list of items:
+ 
+(1) Use Cases, and Requirements
+
+This document should describe in detail the scenarios that meet the required network characteristics. This document may not necessarily be published as an IETF Stream RFC, but    may be maintained in draft form or on a collaborative Working Group space to support the efforts of the Working Group and help newcomers.
+
+(2) MSR6 Specifications
+
+This document, or set of documents as defined by the WG, should specify the MSR6 based solutions. It should include, as needed, a description of any extensions needed to satisfy both best effort and traffic engineering use cases and requirements.
+
+(3) MSR6 YANG Model
+
+Existing control and management plane protocols should be used to implement the MSR6 functionality. Any modification of or extension to existing architectures or control or management plane protocols must be carried out in the working groups responsible for them and in coordination with this working group.
+
+The MSR6 WG will coordinate and collaborate with other WGs as needed. Specific interactions may include (but are not limited to):
+        * 6man for IPv6 extension headers
+        * lsr for OSPFv2, OSPFv3 and IS-IS extensions
+        * idr for BGP extensions
+        * pce for PCEP extensions
+        * PIM/BIER for interoperation with existing PIM/BIER node
+
+   Milestones:
+   Nov 2022: Adopt the Use Cases, and Requirements document
+   Jul 2023: Adopt the MSR6 Specification(s)
+   Jul 2024: Submit the MSR6 Specification(s) to the IESG for Publication
