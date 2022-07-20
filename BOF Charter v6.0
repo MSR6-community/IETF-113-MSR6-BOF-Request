@@ -28,7 +28,7 @@ The MSR6 WG will coordinate and collaborate with other WGs as needed. Specific i
 	* lsr for OSPFv2, OSPFv3 and IS-IS extensions
 	* idr for BGP extensions
 	* pce for PCEP extensions
-    * pim/bier for interworking
+        * pim/bier for interworking
 
 Milestones:
 	Nov 2022: Adopt the Use Cases, and Requirements document
